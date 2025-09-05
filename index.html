@@ -1,0 +1,756 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shaktisinh Parmar | Portfolio</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/feather-icons/dist/feather.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/animejs/lib/anime.iife.min.js"></script>
+    <script src="https://unpkg.com/feather-icons"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: #0f172a;
+            color: #f8fafc;
+            scroll-behavior: smooth;
+        }
+
+        .gradient-text {
+            background: linear-gradient(90deg, #3b82f6, #8b5cf6);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+        }
+
+        .nav-link {
+            position: relative;
+        }
+
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: -2px;
+            left: 0;
+            background: linear-gradient(90deg, #3b82f6, #8b5cf6);
+            transition: width 0.3s ease;
+        }
+
+        .nav-link:hover::after {
+            width: 100%;
+        }
+
+        .hero-name {
+            font-size: clamp(2.5rem, 5vw, 4rem);
+        }
+    </style>
+</head>
+
+<body class="min-h-screen">
+    <header>
+        <nav
+            class="container mx-auto px-6 py-4 flex justify-between items-center bg-gray-900/70 backdrop-blur-md shadow-lg transition-all fixed w-full z-50">
+            <!-- Logo -->
+            <a href="#"
+                class="text-2xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-blue-400 via-purple-400 to-pink-400 hover:scale-105 transform transition-all duration-300">
+                SP
+            </a>
+
+            <!-- Desktop Links -->
+            <div class="hidden md:flex space-x-10">
+                <a href="#home" class="nav-link text-gray-300 hover:text-white font-medium">Home</a>
+                <a href="#about" class="nav-link text-gray-300 hover:text-white font-medium">About</a>
+                <a href="#projects" class="nav-link text-gray-300 hover:text-white font-medium">Projects</a>
+                <a href="#skills" class="nav-link text-gray-300 hover:text-white font-medium">Skills</a>
+                <a href="#contact" class="nav-link text-gray-300 hover:text-white font-medium">Contact</a>
+            </div>
+
+            <!-- Mobile Menu Button (inside nav; not fixed) -->
+            <button id="menu-btn" aria-label="Open menu"
+                class="md:hidden p-3 bg-gray-800 text-white rounded-md shadow-md z-60">
+                ☰
+            </button>
+        </nav>
+
+        <!-- Overlay (covers whole viewport) -->
+        <div id="mobile-menu-overlay"
+            class="fixed inset-0 bg-black/70 backdrop-blur-md opacity-0 pointer-events-none transition-opacity duration-300 z-40">
+        </div>
+
+        <!-- Mobile Menu (full height, slides in from right) -->
+        <aside id="mobile-menu"
+            class="fixed top-0 right-0 h-full w-72 max-w-full bg-gray-900 shadow-2xl transform translate-x-full transition-transform duration-300 ease-in-out z-[110] flex flex-col pt-24 px-6 gap-6">
+            <!-- Close Button (absolute) -->
+            <button id="menu-close" aria-label="Close menu"
+                class="absolute top-4 right-4 text-white text-3xl font-bold hover:text-red-500 transition">×</button>
+
+            <!-- Small profile -->
+            <div class="flex items-center gap-3">
+                <img src="images/sp.jpg" alt="avatar"
+                    class="w-12 h-12 rounded-full border-2 border-blue-500 object-cover">
+                <div>
+                    <p class="text-sm text-gray-300">Hi, I'm</p>
+                    <p class="font-semibold text-white">Shaktisinh Parmar</p>
+                </div>
+            </div>
+
+            <!-- Links -->
+            <nav class="flex flex-col mt-2 gap-4">
+                <a href="#home" class="block text-lg text-blue-400 font-semibold">Home</a>
+                <a href="#about" class="block text-lg text-blue-400 font-semibold">About</a>
+                <a href="#projects" class="block text-lg text-blue-400 font-semibold">Projects</a>
+                <a href="#skills" class="block text-lg text-blue-400 font-semibold">Skills</a>
+                <a href="#contact" class="block text-lg text-blue-400 font-semibold">Contact</a>
+            </nav>
+
+            <div class="mt-auto">
+                <a href="images/resume.pdf.pdf" target="_blank"
+                    class="inline-block w-full text-center px-4 py-3 border border-blue-500 rounded-full text-gray-200 font-medium hover:bg-blue-500/10 transition">
+                    Download Resume
+                </a>
+            </div>
+        </aside>
+    </header>
+
+
+
+
+
+    <main>
+        <!-- Hero Section -->
+        <section id="home" class="min-h-screen flex items-center justify-center px-6 pt-24 pb-16 relative">
+            <div class="container mx-auto text-center" data-aos="fade-up" data-aos-duration="1000">
+
+                <!-- Profile / Avatar -->
+                <div class="flex justify-center mb-6">
+                    <img src="images/sp.jpg" alt="Shaktisinh Parmar"
+                        class="w-32 h-32 md:w-40 md:h-40 rounded-full border-4 border-blue-500 shadow-lg object-cover object-top">
+                </div>
+
+
+                <!-- Name -->
+                <h1 class="hero-name font-bold text-4xl md:text-6xl mb-4">
+                    Hi, I'm <span class="gradient-text">Shaktisinh Parmar</span>
+                </h1>
+
+                <!-- Tagline -->
+                <p class="text-lg md:text-2xl text-gray-300 mb-6">
+                    🚀 Creative <span class="text-blue-400 font-semibold">Developer</span> &
+                    <span class="text-purple-400 font-semibold">Problem Solver</span>
+                </p>
+
+                <!-- Social Links -->
+                <div class="flex justify-center space-x-6 mb-8">
+                    <a href="https://github.com/Shaktisinh0044" target="_blank"
+                        class="text-gray-400 hover:text-blue-400 transition"><i data-feather="github"></i></a>
+                    <a href="https://www.linkedin.com/in/shaktisinh-parmar-44a1182b2" target="_blank"
+                        class="text-gray-400 hover:text-blue-500 transition"><i data-feather="linkedin"></i></a>
+                </div>
+
+                <!-- Buttons -->
+                <div class="flex justify-center space-x-4">
+                    <a href="#projects"
+                        class="px-6 py-3 bg-gradient-to-r from-blue-500 to-purple-600 rounded-full font-medium hover:opacity-90 transition-all shadow-lg">View
+                        Work</a>
+                    <a href="images/resume.pdf.pdf" target="_blank"
+                        class="px-6 py-3 border border-blue-500 rounded-full font-medium text-gray-300 hover:bg-blue-500/10 transition-all">
+                        Download Resume
+                    </a>
+                </div>
+            </div>
+
+            <!-- Scroll Down Arrow -->
+            <div class="absolute bottom-8 left-0 right-0 flex justify-center">
+                <a href="#about" class="animate-bounce">
+                    <i data-feather="chevron-down" class="text-gray-400 w-6 h-6"></i>
+                </a>
+            </div>
+        </section>
+
+        <hr>
+        <!-- About Section -->
+        <section id="about" class="py-28 px-6 bg-gray-900 relative">
+            <div class="container mx-auto">
+                <!-- Section Title -->
+                <h2 class="text-4xl font-bold mb-16 text-center gradient-text" data-aos="fade-up">
+                    About Me
+                </h2>
+
+                <div class="flex flex-col md:flex-row items-center gap-12">
+                    <!-- Left Image -->
+                    <div class="md:w-1/3 relative" data-aos="fade-right" data-aos-duration="1000">
+                        <div
+                            class="rounded-xl overflow-hidden border-4 border-blue-500 shadow-lg hover:scale-105 transition-transform duration-500">
+                            <img src="https://images.unsplash.com/photo-1669023414162-5bb06bbff0ec?w=500&auto=format&fit=crop&q=60"
+                                alt="Shaktisinh Parmar" class="w-full h-[420px] object-cover">
+                        </div>
+                        <!-- Floating Badge -->
+                        <div
+                            class="absolute -bottom-6 left-1/2 transform -translate-x-1/2 bg-gradient-to-r from-blue-500 to-purple-600 text-white px-6 py-3 rounded-xl shadow-lg animate-bounce">
+                            <span class="font-semibold">2+ Years Experience</span>
+                        </div>
+                    </div>
+
+                    <!-- Right Content -->
+                    <div class="md:w-2/3 space-y-6" data-aos="fade-left" data-aos-duration="1000">
+                        <h3 class="text-3xl font-semibold text-blue-400">Who am I?</h3>
+                        <p class="text-gray-300 leading-relaxed">
+                            I'm <span class="font-bold text-white">Shaktisinh Parmar</span>, a passionate developer
+                            focused on building
+                            <span class="text-blue-400">modern, scalable, and user-friendly</span> web applications.
+                            My journey started with curiosity about technology, and today, I help transform ideas into
+                            digital reality.
+                        </p>
+                        <p class="text-gray-300 leading-relaxed">
+                            With experience in both <span class="text-purple-400">frontend</span> and <span
+                                class="text-purple-400">backend</span>,
+                            I’ve worked on projects that blend creativity with performance.
+                            I also hold <span class="text-yellow-400 font-semibold">10+ certificates</span> in
+                            development and emerging technologies.
+                        </p>
+
+                        <!-- Quick Info (Unified Theme) -->
+                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+                            <div class="flex items-center gap-3">
+                                <i data-feather="map-pin" class="text-blue-400"></i>
+                                <span class="text-gray-300">Ahmedabad, India</span>
+                            </div>
+                            <div class="flex items-center gap-3">
+                                <i data-feather="briefcase" class="text-blue-400"></i>
+                                <span class="text-gray-300">SVGU University - BCA (2024-2026) </span>
+                            </div>
+                            <div class="flex items-center gap-3">
+                                <i data-feather="award" class="text-blue-400"></i>
+                                <span class="text-gray-300">10+ Certificates</span>
+                            </div>
+                            <div class="flex items-center gap-3">
+                                <i data-feather="code" class="text-blue-400"></i>
+                                <span class="text-gray-300">Frontend & Backend Expert</span>
+                            </div>
+                        </div>
+
+                        <!-- Call-to-Action -->
+                        <div class="mt-6 flex gap-4">
+                            <a href="#contact"
+                                class="px-6 py-3 bg-gradient-to-r from-blue-500 to-purple-600 rounded-full font-medium text-white hover:opacity-90 transition-all">
+                                Let’s Work Together
+                            </a>
+                            <a href="images/resume.pdf.pdf" target="_blank"
+                                class="px-6 py-3 border border-blue-500 rounded-full font-medium text-gray-300 hover:bg-blue-500/10 transition-all">
+                                Download Resume
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <hr>
+        <!-- Projects Section -->
+        <section id="projects" class="py-20 px-6">
+            <div class="container mx-auto">
+                <h2 class="text-3xl font-bold mb-4 text-center" data-aos="fade-up">My Projects</h2>
+                <p class="text-gray-400 text-center mb-12 max-w-2xl mx-auto" data-aos="fade-up" data-aos-delay="100">
+                    Here are some of my recent works that showcase my skills and expertise.
+                </p>
+
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                    <!-- Project 1 -->
+                    <div class="bg-gray-800 rounded-xl overflow-hidden border border-gray-700 hover:border-blue-500 transition-all flex flex-col"
+                        data-aos="zoom-in">
+
+                        <!-- Image -->
+                        <div class="h-48 overflow-hidden">
+                            <img src="images/image_2025-09-04_18-13-10.png" alt="Project 1"
+                                class="w-full h-full object-cover">
+                        </div>
+
+                        <!-- Content -->
+                        <div class="p-6 flex-grow">
+                            <h3 class="text-xl font-semibold mb-2">E-commerce Platform</h3>
+                            <p class="text-gray-400 mb-4">Showcases multiple product cards with images, titles, and
+                                prices. Features a fixed navigation bar for easy site access.</p>
+                            <div class="flex flex-wrap gap-2">
+                                <span class="px-3 py-1 bg-gray-700 rounded-full text-sm">Java Script</span>
+                                <span class="px-3 py-1 bg-gray-700 rounded-full text-sm">HTML</span>
+                                <span class="px-3 py-1 bg-gray-700 rounded-full text-sm">CSS3</span>
+                            </div>
+                        </div>
+
+                        <!-- Button -->
+                        <div>
+                            <a href="https://shaktisinh0044.github.io/eCom-Web/" target="_blank"
+                                class="block w-full px-6 py-4 bg-gradient-to-r from-blue-500 to-purple-600 rounded-lg font-medium text-center hover:opacity-90 transition-all">
+                                View
+                            </a>
+                        </div>
+                    </div>
+
+
+
+                    <!-- Project 2 -->
+                    <!-- Project Card -->
+                    <div class="bg-gray-800 rounded-xl overflow-hidden border border-gray-700 hover:border-purple-500 transition-all flex flex-col"
+                        data-aos="zoom-in" data-aos-delay="100">
+
+                        <!-- Image -->
+                        <div class="h-48 overflow-hidden">
+                            <img src="images/watch.png" alt="Project 2" class="w-full h-full object-cover">
+                        </div>
+
+                        <!-- Content -->
+                        <div class="p-6 flex-grow">
+                            <h3 class="text-xl font-semibold mb-2">Buy Watch Online</h3>
+                            <p class="text-gray-400 mb-4">A modern, responsive, and minimalistic landing page for an
+                                e-commerce watch store.</p>
+                            <div class="flex flex-wrap gap-2">
+                                <span class="px-3 py-1 bg-gray-700 rounded-full text-sm">Responsive</span>
+                                <span class="px-3 py-1 bg-gray-700 rounded-full text-sm">CSS</span>
+                                <span class="px-3 py-1 bg-gray-700 rounded-full text-sm">Java Script</span>
+                            </div>
+                        </div>
+
+                        <!-- Button -->
+                        <div>
+                            <a href="https://shaktisinh0044.github.io/Watch-Ecom-Web/" target="_blank"
+                                class="block w-full px-6 py-4 bg-gradient-to-r from-blue-500 to-purple-600 rounded-lg font-medium text-center hover:opacity-90 transition-all">
+                                View
+                            </a>
+                        </div>
+                    </div>
+
+
+                    <!-- Project 3 -->
+                    <div class="bg-gray-800 rounded-xl overflow-hidden border border-gray-700 hover:border-green-500 transition-all flex flex-col"
+                        data-aos="zoom-in" data-aos-delay="200">
+
+                        <!-- Image -->
+                        <div class="h-48 overflow-hidden">
+                            <img src="images/perfume.png" alt="Project 3" class="w-full h-full object-cover">
+                        </div>
+
+                        <!-- Content -->
+                        <div class="p-6 flex-grow">
+                            <h3 class="text-xl font-semibold mb-2">Perfume E-Commerce Website</h3>
+                            <p class="text-gray-400 mb-4">A beautifully designed static perfume e-commerce landing page
+                                showcasing premium perfumes.</p>
+                            <div class="flex flex-wrap gap-2">
+                                <span class="px-3 py-1 bg-gray-700 rounded-full text-sm">CSS</span>
+                                <span class="px-3 py-1 bg-gray-700 rounded-full text-sm">Java Script</span>
+                                <span class="px-3 py-1 bg-gray-700 rounded-full text-sm">Responsive</span>
+                            </div>
+                        </div>
+
+                        <!-- Button -->
+                        <div>
+                            <a href="https://shaktisinh0044.github.io/Perfume_Ecom_Web/" target="_blank"
+                                class="block w-full px-6 py-4 bg-gradient-to-r from-blue-500 to-purple-600 rounded-lg font-medium text-center hover:opacity-90 transition-all">
+                                View
+                            </a>
+                        </div>
+                    </div>
+
+
+
+                    <!-- Project 4 -->
+                    <div class="bg-gray-800 rounded-xl overflow-hidden border border-gray-700 hover:border-green-500 transition-all flex flex-col"
+                        data-aos="zoom-in" data-aos-delay="200">
+
+                        <!-- Image -->
+                        <div class="h-48 overflow-hidden">
+                            <img src="images/icecream.png" alt="Project 3" class="w-full h-full object-cover">
+                        </div>
+
+                        <!-- Content -->
+                        <div class="p-6 flex-grow">
+                            <h3 class="text-xl font-semibold mb-2">SCOOPIT</h3>
+                            <p class="text-gray-400 mb-4">Clean, modern, and responsive design. Smooth scroll animations
+                                powered by GSAP.</p>
+                            <div class="flex flex-wrap gap-2">
+                                <span class="px-3 py-1 bg-gray-700 rounded-full text-sm">HTML</span>
+                                <span class="px-3 py-1 bg-gray-700 rounded-full text-sm">CSS</span>
+                                <span class="px-3 py-1 bg-gray-700 rounded-full text-sm">Java Script</span>
+                            </div>
+                        </div>
+
+                        <!-- Button -->
+                        <div>
+                            <a href="https://shaktisinh0044.github.io/Ice_Cream_web/" target="_blank"
+                                class="block w-full px-6 py-4 bg-gradient-to-r from-blue-500 to-purple-600 rounded-lg font-medium text-center hover:opacity-90 transition-all">
+                                View
+                            </a>
+                        </div>
+                    </div>
+
+
+                    <!-- Project 5 -->
+                    <div class="bg-gray-800 rounded-xl overflow-hidden border border-gray-700 hover:border-green-500 transition-all flex flex-col"
+                        data-aos="zoom-in" data-aos-delay="200">
+
+                        <!-- Image -->
+                        <div class="h-48 overflow-hidden">
+                            <img src="images/Mic.png" alt="Project 3" class="w-full h-full object-cover">
+                        </div>
+
+                        <!-- Content -->
+                        <div class="p-6 flex-grow">
+                            <h3 class="text-xl font-semibold mb-2">Voice Recognition To-Do List</h3>
+                            <p class="text-gray-400 mb-4">An interactive, voice-enabled to-do list application. This app
+                                lets users add tasks using speech input via the Web Speech API.</p>
+                            <div class="flex flex-wrap gap-2">
+                                <span class="px-3 py-1 bg-gray-700 rounded-full text-sm">JavaScript</span>
+                                <span class="px-3 py-1 bg-gray-700 rounded-full text-sm">API</span>
+                                <span class="px-3 py-1 bg-gray-700 rounded-full text-sm">CSS</span>
+                            </div>
+                        </div>
+
+                        <!-- Button -->
+                        <div>
+                            <a href="https://shaktisinh0044.github.io/Voice_ToDo_List/" target="_blank"
+                                class="block w-full px-6 py-4 bg-gradient-to-r from-blue-500 to-purple-600 rounded-lg font-medium text-center hover:opacity-90 transition-all">
+                                View
+                            </a>
+                        </div>
+                    </div>
+
+
+
+                    <!-- Project 6 -->
+
+                    <div class="bg-gray-800 rounded-xl overflow-hidden border border-gray-700 hover:border-green-500 transition-all flex flex-col"
+                        data-aos="zoom-in" data-aos-delay="200">
+
+                        <!-- Image -->
+                        <div class="h-48 overflow-hidden">
+                            <img src="images/images.jpg" alt="All Projects" class="w-full h-full object-cover">
+                        </div>
+
+                        <!-- Content -->
+                        <div class="p-6 flex-grow">
+                            <h3 class="text-xl font-semibold mb-2">View All Projects</h3>
+                            <div class="flex flex-wrap gap-2">
+                                <span class="px-3 py-1 bg-gray-700 rounded-full text-sm">GitHub</span>
+                                <span class="px-3 py-1 bg-gray-700 rounded-full text-sm">Git</span>
+                            </div>
+                        </div>
+
+                        <!-- Button -->
+                        <div>
+                            <a href="https://github.com/Shaktisinh0044" target="_blank"
+                                class="block w-full px-6 py-4 bg-gradient-to-r from-blue-500 to-purple-600 rounded-lg font-medium text-center hover:opacity-90 transition-all">
+                                View
+                            </a>
+                        </div>
+                    </div>
+
+
+                </div>
+            </div>
+        </section>
+        <hr>
+        <!-- Skills Section -->
+        <section id="skills" class="py-24 px-6 bg-gradient-to-b from-gray-900 via-gray-800 to-gray-900">
+            <div class="container mx-auto">
+                <h2 class="text-4xl font-bold mb-6 text-center text-white" data-aos="fade-up">My Skills</h2>
+                <p class="text-gray-400 text-center mb-16 max-w-3xl mx-auto text-lg" data-aos="fade-up"
+                    data-aos-delay="100">
+                    The tools and technologies I use to bring ideas to life.
+                </p>
+
+                <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-10">
+                    <!-- Skill Card Template -->
+                    <div class="bg-gray-800 p-8 rounded-2xl text-center transform hover:scale-105 hover:shadow-2xl transition-all duration-500"
+                        data-aos="flip-left">
+                        <div
+                            class="w-20 h-20 mx-auto mb-5 flex items-center justify-center rounded-full bg-gradient-to-tr from-blue-500/20 to-blue-400/10 shadow-inner">
+                            <i data-feather="code" class="text-blue-400 text-3xl"></i>
+                        </div>
+                        <h3 class="text-xl font-semibold mb-4 text-white">Frontend</h3>
+                        <ul class="text-gray-300 text-sm space-y-3">
+                            <li class="flex items-center gap-2"><span class="text-green-400">✔</span> HTML5</li>
+                            <li class="flex items-center gap-2"><span class="text-green-400">✔</span> CSS3</li>
+                            <li class="flex items-center gap-2"><span class="text-green-400">✔</span> JavaScript</li>
+                            <li class="flex items-center gap-2"><span class="text-green-400">✔</span> Responsive Design
+                            </li>
+                            <li class="flex items-center gap-2"><span class="text-green-400">✔</span> React.js (Basics)
+                            </li>
+                        </ul>
+                    </div>
+
+                    <!-- Backend -->
+                    <div class="bg-gray-800 p-8 rounded-2xl text-center transform hover:scale-105 hover:shadow-2xl transition-all duration-500"
+                        data-aos="flip-left" data-aos-delay="100">
+                        <div
+                            class="w-20 h-20 mx-auto mb-5 flex items-center justify-center rounded-full bg-gradient-to-tr from-purple-500/20 to-purple-400/10 shadow-inner">
+                            <i data-feather="server" class="text-purple-400 text-3xl"></i>
+                        </div>
+                        <h3 class="text-xl font-semibold mb-4 text-white">Backend</h3>
+                        <ul class="text-gray-300 text-sm space-y-3">
+                            <li class="flex items-center gap-2"><span class="text-green-400">✔</span> Node.js</li>
+                            <li class="flex items-center gap-2"><span class="text-green-400">✔</span> Express.js</li>
+                            <li class="flex items-center gap-2"><span class="text-green-400">✔</span> Python (Basics)
+                            </li>
+                            <li class="flex items-center gap-2"><span class="text-green-400">✔</span> .NET (Intro)</li>
+                        </ul>
+                    </div>
+
+                    <!-- Database -->
+                    <div class="bg-gray-800 p-8 rounded-2xl text-center transform hover:scale-105 hover:shadow-2xl transition-all duration-500"
+                        data-aos="flip-left" data-aos-delay="200">
+                        <div
+                            class="w-20 h-20 mx-auto mb-5 flex items-center justify-center rounded-full bg-gradient-to-tr from-green-500/20 to-green-400/10 shadow-inner">
+                            <i data-feather="database" class="text-green-400 text-3xl"></i>
+                        </div>
+                        <h3 class="text-xl font-semibold mb-4 text-white">Database</h3>
+                        <ul class="text-gray-300 text-sm space-y-3">
+                            <li class="flex items-center gap-2"><span class="text-green-400">✔</span> MongoDB</li>
+                            <li class="flex items-center gap-2"><span class="text-green-400">✔</span> MySQL</li>
+                            <li class="flex items-center gap-2"><span class="text-green-400">✔</span> Firebase</li>
+                        </ul>
+                    </div>
+
+                    <!-- Tools & Platforms -->
+                    <div class="bg-gray-800 p-8 rounded-2xl text-center transform hover:scale-105 hover:shadow-2xl transition-all duration-500"
+                        data-aos="flip-left" data-aos-delay="300">
+                        <div
+                            class="w-20 h-20 mx-auto mb-5 flex items-center justify-center rounded-full bg-gradient-to-tr from-yellow-500/20 to-yellow-400/10 shadow-inner">
+                            <i data-feather="smartphone" class="text-yellow-400 text-3xl"></i>
+                        </div>
+                        <h3 class="text-xl font-semibold mb-4 text-white">Tools & Platforms</h3>
+                        <ul class="text-gray-300 text-sm space-y-3">
+                            <li class="flex items-center gap-2"><span class="text-green-400">✔</span> Git</li>
+                            <li class="flex items-center gap-2"><span class="text-green-400">✔</span> GitHub</li>
+                            <li class="flex items-center gap-2"><span class="text-green-400">✔</span> NPM</li>
+                            <li class="flex items-center gap-2"><span class="text-green-400">✔</span> VS Code</li>
+                            <li class="flex items-center gap-2"><span class="text-green-400">✔</span> Figma</li>
+                            <li class="flex items-center gap-2"><span class="text-green-400">✔</span> WordPress</li>
+                        </ul>
+                    </div>
+
+                    <!-- Extra -->
+                    <div class="bg-gray-800 p-8 rounded-2xl text-center transform hover:scale-105 hover:shadow-2xl transition-all duration-500"
+                        data-aos="flip-left" data-aos-delay="400">
+                        <div
+                            class="w-20 h-20 mx-auto mb-5 flex items-center justify-center rounded-full bg-gradient-to-tr from-red-500/20 to-red-400/10 shadow-inner">
+                            <i data-feather="cloud" class="text-red-400 text-3xl"></i>
+                        </div>
+                        <h3 class="text-xl font-semibold mb-4 text-white">Extra</h3>
+                        <ul class="text-gray-300 text-sm space-y-3">
+                            <li class="flex items-center gap-2"><span class="text-green-400">✔</span> REST API</li>
+                            <li class="flex items-center gap-2"><span class="text-green-400">✔</span> JSON</li>
+                            <li class="flex items-center gap-2"><span class="text-green-400">✔</span> SEO</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <hr>
+        <!-- Contact Section -->
+        <section id="contact" class="py-24 px-6 bg-gray-900">
+            <div class="container mx-auto max-w-4xl">
+                <h2 class="text-4xl font-bold mb-6 text-center text-white" data-aos="fade-up">Get In Touch</h2>
+                <p class="text-gray-400 text-center mb-16 max-w-3xl mx-auto text-lg" data-aos="fade-up"
+                    data-aos-delay="100">
+                    Have a project in mind or want to discuss potential opportunities? Feel free to reach out!
+                </p>
+
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-10">
+
+                    <!-- Email -->
+                    <a href="https://mail.google.com/mail/?view=cm&fs=1&to=shaktisinh5169@gmail.com" target="_blank"
+                        class="flex flex-col items-center text-center p-8 rounded-2xl bg-gray-800 border border-gray-700 hover:border-blue-500 hover:shadow-2xl transform hover:scale-105 transition-all duration-500"
+                        data-aos="fade-up">
+                        <div
+                            class="w-16 h-16 flex items-center justify-center bg-blue-500/20 rounded-full mb-5 shadow-inner">
+                            <i data-feather="mail" class="text-blue-400 text-2xl"></i>
+                        </div>
+                        <h3 class="text-xl font-semibold mb-3 text-white">Email</h3>
+                        <p class="text-gray-400 hover:text-blue-400">shaktisinh5169@gmail.com</p>
+                    </a>
+
+                    <!-- Phone & WhatsApp -->
+                    <a href="https://wa.me/919313074894" target="_blank"
+                        class="flex flex-col items-center text-center p-8 rounded-2xl bg-gray-800 border border-gray-700 hover:border-purple-500 hover:shadow-2xl transform hover:scale-105 transition-all duration-500"
+                        data-aos="fade-up" data-aos-delay="100">
+                        <div
+                            class="w-16 h-16 flex items-center justify-center bg-purple-500/20 rounded-full mb-5 shadow-inner">
+                            <i data-feather="phone" class="text-purple-400 text-2xl"></i>
+                        </div>
+                        <h3 class="text-xl font-semibold mb-3 text-white">Phone & WhatsApp</h3>
+                        <p class="text-gray-400 hover:text-purple-400">+91 93130 74894</p>
+                    </a>
+
+                    <!-- Location -->
+                    <a href="https://www.google.com/maps/place/Ahmedabad,+India" target="_blank"
+                        class="flex flex-col items-center text-center p-8 rounded-2xl bg-gray-800 border border-gray-700 hover:border-green-500 hover:shadow-2xl transform hover:scale-105 transition-all duration-500"
+                        data-aos="fade-up" data-aos-delay="200">
+                        <div
+                            class="w-16 h-16 flex items-center justify-center bg-green-500/20 rounded-full mb-5 shadow-inner">
+                            <i data-feather="map-pin" class="text-green-400 text-2xl"></i>
+                        </div>
+                        <h3 class="text-xl font-semibold mb-3 text-white">Location</h3>
+                        <p class="text-gray-400 hover:text-green-400">Ahmedabad, India</p>
+                    </a>
+
+                </div>
+            </div>
+        </section>
+
+
+    </main>
+    <hr>
+
+    <footer class="bg-gray-900 py-16 px-6">
+        <div class="container mx-auto">
+            <!-- Top Section -->
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-12 mb-12">
+
+                <!-- About -->
+                <div>
+                    <a href="#" class="text-2xl font-bold gradient-text">Shaktisinh Parmar</a>
+                    <p class="text-gray-400 mt-4 leading-relaxed">
+                        A passionate Web Developer crafting responsive, modern, and impactful digital experiences.
+                        I specialize in Frontend & Backend Development with a focus on clean code and great UI/UX.
+                    </p>
+                </div>
+
+                <!-- Quick Links -->
+                <div>
+                    <h3 class="font-semibold text-lg mb-4 text-white">Quick Links</h3>
+                    <ul class="space-y-3 text-gray-400">
+                        <li><a href="#about" class="hover:text-blue-400 transition">About Me</a></li>
+                        <li><a href="#skills" class="hover:text-blue-400 transition">Skills</a></li>
+                        <li><a href="#projects" class="hover:text-blue-400 transition">Projects</a></li>
+                        <li><a href="#contact" class="hover:text-blue-400 transition">Contact</a></li>
+                    </ul>
+                </div>
+
+                <!-- Contact Info -->
+                <div>
+                    <h3 class="font-semibold text-lg mb-4 text-white">Contact</h3>
+                    <ul class="space-y-3 text-gray-400">
+                        <li>
+                            <i data-feather="mail" class="inline w-4 h-4 mr-2 text-blue-400"></i>
+                            <a href="https://mail.google.com/mail/?view=cm&fs=1&to=shaktisinh5169@gmail.com"
+                                target="_blank" class="hover:text-blue-400 transition">shaktisinh5169@gmail.com</a>
+                        </li>
+                        <li>
+                            <i data-feather="phone" class="inline w-4 h-4 mr-2 text-green-400"></i>
+                            <a href="https://wa.me/919313074894" target="_blank"
+                                class="hover:text-green-400 transition">+91 93130 74894</a>
+                        </li>
+                        <li>
+                            <i data-feather="map-pin" class="inline w-4 h-4 mr-2 text-red-400"></i>
+                            Ahmedabad, India
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Social + Copyright -->
+            <div class="flex flex-col md:flex-row justify-between items-center border-t border-gray-800 pt-8">
+                <!-- Social -->
+                <div class="flex space-x-6 mb-6 md:mb-0">
+                    <a href="https://github.com/Shaktisinh0044" target="_blank"
+                        class="text-gray-400 hover:text-blue-400 transition"><i data-feather="github"></i></a>
+                    <a href="https://twitter.com/" target="_blank"
+                        class="text-gray-400 hover:text-sky-400 transition"><i data-feather="twitter"></i></a>
+                    <a href="https://www.linkedin.com/in/shaktisinh-parmar-44a1182b2" target="_blank"
+                        class="text-gray-400 hover:text-blue-500 transition"><i data-feather="linkedin"></i></a>
+                    <a href="https://youtube.com/" target="_blank"
+                        class="text-gray-400 hover:text-red-500 transition"><i data-feather="youtube"></i></a>
+                </div>
+
+                <!-- Copyright -->
+                <p class="text-gray-500 text-sm">&copy; 2025 Shaktisinh Parmar. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+
+    <script>
+        // init AOS + feather + anime safely
+        AOS?.init({ duration: 800, easing: 'ease-in-out', once: true });
+        if (typeof feather !== 'undefined') feather.replace();
+        document.addEventListener('DOMContentLoaded', () => {
+            if (typeof anime !== 'undefined') {
+                anime({
+                    targets: '.gradient-text',
+                    backgroundPosition: ['0% 50%', '100% 50%'],
+                    duration: 3000,
+                    easing: 'linear',
+                    loop: true,
+                    direction: 'alternate'
+                });
+            }
+        });
+
+        // sendEmail unchanged (kept guard reads)
+        function sendEmail(event) {
+            event.preventDefault();
+            const name = document.getElementById("name")?.value || '';
+            const email = document.getElementById("email")?.value || '';
+            const subject = document.getElementById("subject")?.value || '';
+            const message = document.getElementById("message")?.value || '';
+            const mailtoLink = `mailto:shaktisinh5169@gmail.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(
+                "Name: " + name + "\nEmail: " + email + "\n\nMessage:\n" + message
+            )}`;
+            window.location.href = mailtoLink;
+        }
+
+        // MOBILE MENU LOGIC
+        document.addEventListener('DOMContentLoaded', () => {
+            const menuBtn = document.getElementById('menu-btn');
+            const closeBtn = document.getElementById('menu-close');
+            const mobileMenu = document.getElementById('mobile-menu');
+            const overlay = document.getElementById('mobile-menu-overlay');
+
+            const openMenu = () => {
+                if (!mobileMenu || !overlay) return;
+                mobileMenu.classList.remove('translate-x-full'); mobileMenu.classList.add('translate-x-0');
+                overlay.classList.remove('opacity-0', 'pointer-events-none'); overlay.classList.add('opacity-100', 'pointer-events-auto');
+                document.documentElement.classList.add('overflow-hidden'); document.body.classList.add('overflow-hidden');
+                // add a class so you can tweak header styling if needed
+                document.documentElement.classList.add('menu-open');
+            };
+
+            const closeMenu = () => {
+                if (!mobileMenu || !overlay) return;
+                mobileMenu.classList.add('translate-x-full'); mobileMenu.classList.remove('translate-x-0');
+                overlay.classList.add('opacity-0', 'pointer-events-none'); overlay.classList.remove('opacity-100', 'pointer-events-auto');
+                document.documentElement.classList.remove('overflow-hidden'); document.body.classList.remove('overflow-hidden');
+                document.documentElement.classList.remove('menu-open');
+            };
+
+            const toggleMenu = () => (mobileMenu && mobileMenu.classList.contains('translate-x-full')) ? openMenu() : closeMenu();
+
+            menuBtn?.addEventListener('click', (e) => { e.stopPropagation(); toggleMenu(); });
+            closeBtn?.addEventListener('click', (e) => { e.stopPropagation(); closeMenu(); });
+            overlay?.addEventListener('click', (e) => { e.stopPropagation(); closeMenu(); });
+
+            document.addEventListener('keydown', (e) => { if (e.key === 'Escape') closeMenu(); });
+
+            // close when anchor link inside menu clicked
+            mobileMenu?.addEventListener('click', (e) => {
+                const anchor = e.target.closest && e.target.closest('a');
+                if (anchor && anchor.getAttribute('href')?.startsWith('#')) setTimeout(closeMenu, 120);
+            });
+
+            // ensure initial hidden state
+            if (mobileMenu) { mobileMenu.classList.add('translate-x-full'); mobileMenu.classList.remove('translate-x-0'); }
+            if (overlay) { overlay.classList.add('opacity-0', 'pointer-events-none'); overlay.classList.remove('opacity-100', 'pointer-events-auto'); }
+        });
+    </script>
+
+
+</body>
+
+</html>
