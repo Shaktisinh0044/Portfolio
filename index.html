@@ -203,17 +203,19 @@
       top: 0;
       left: 0;
       right: 0;
-      z-index: 100;
+      z-index: 500;
       display: flex;
       align-items: center;
       justify-content: space-between;
       padding: 18px clamp(20px, 5vw, 64px);
+      background: rgba(10, 14, 20, .6);
+      backdrop-filter: blur(10px);
       transition: background .35s ease, border-color .35s ease, padding .35s ease;
       border-bottom: 1px solid transparent;
     }
 
     nav.scrolled {
-      background: rgba(10, 14, 20, .82);
+      background: rgba(10, 14, 20, .92);
       backdrop-filter: blur(14px);
       border-bottom-color: var(--line);
       padding: 12px clamp(20px, 5vw, 64px);
@@ -307,7 +309,10 @@
       width: 30px;
       height: 22px;
       position: relative;
-      z-index: 130
+      z-index: 130;
+      cursor: pointer;
+      touch-action: manipulation;
+      -webkit-tap-highlight-color: transparent
     }
 
     #hamburger span {
@@ -358,12 +363,14 @@
       gap: 30px;
       opacity: 0;
       visibility: hidden;
+      pointer-events: none;
       transition: opacity .35s, visibility .35s;
     }
 
     #mobile-menu.open {
       opacity: 1;
-      visibility: visible
+      visibility: visible;
+      pointer-events: auto
     }
 
     #mobile-menu a {
@@ -690,7 +697,8 @@
     /* ============ SECTION SHELL ============ */
     section {
       padding: 110px clamp(20px, 5vw, 64px);
-      position: relative
+      position: relative;
+      scroll-margin-top: 88px
     }
 
     .sec-head {
@@ -1224,40 +1232,95 @@
       padding: 26px 28px 30px
     }
 
-    .skill {
-      margin-bottom: 22px
+    .logo-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 14px;
+      padding: 26px;
     }
 
-    .skill:last-child {
-      margin-bottom: 0
-    }
-
-    .skill-top {
-      display: flex;
-      justify-content: space-between;
-      font-family: var(--mono);
-      font-size: 13.5px;
-      margin-bottom: 9px
-    }
-
-    .skill-top span:last-child {
-      color: var(--amber)
-    }
-
-    .bar {
-      height: 7px;
+    .logo-tile {
       background: var(--bg);
-      border-radius: 4px;
-      overflow: hidden;
-      border: 1px solid var(--line)
+      border: 1px solid var(--line);
+      border-radius: 12px;
+      padding: 22px 14px 16px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 8px;
+      color: var(--muted);
+      position: relative;
+      transition: border-color .3s, color .3s, transform .25s;
     }
 
-    .bar i {
-      display: block;
-      height: 100%;
-      width: 0;
-      border-radius: 4px;
-      background: linear-gradient(90deg, var(--amber), var(--cyan))
+    .logo-tile svg {
+      width: 30px;
+      height: 30px;
+      transition: color .3s, filter .3s
+    }
+
+    .lt-name {
+      font-family: var(--display);
+      font-size: 14.5px;
+      font-weight: 600;
+      color: var(--text)
+    }
+
+    .lt-tag {
+      font-family: var(--mono);
+      font-size: 10.5px;
+      color: var(--muted);
+      letter-spacing: .6px;
+      text-transform: uppercase
+    }
+
+    .logo-tile:hover {
+      border-color: var(--amber);
+      transform: translateY(-3px)
+    }
+
+    .logo-tile:hover svg {
+      color: var(--amber);
+      filter: drop-shadow(0 0 10px rgba(255, 180, 84, .55))
+    }
+
+    .logo-tile.boot {
+      animation: tile-boot .55s ease
+    }
+
+    .logo-tile.boot svg {
+      color: var(--amber);
+      filter: drop-shadow(0 0 14px rgba(255, 180, 84, .8))
+    }
+
+    @keyframes tile-boot {
+      0% {
+        transform: scale(1)
+      }
+
+      40% {
+        transform: scale(1.08);
+        box-shadow: 0 0 0 0 rgba(255, 180, 84, .45)
+      }
+
+      100% {
+        transform: scale(1);
+        box-shadow: 0 0 0 12px rgba(255, 180, 84, 0)
+      }
+    }
+
+    .lt-status {
+      font-family: var(--mono);
+      font-size: 13px;
+      color: var(--cyan);
+      border-top: 1px solid var(--line);
+      padding: 16px 26px 20px;
+      min-height: 46px;
+    }
+
+    .lt-status .p {
+      color: var(--green);
+      margin-right: 6px
     }
 
     .chips-panel {
@@ -1528,7 +1591,32 @@
       }
 
       section {
-        padding: 80px 20px
+        padding: 80px 20px;
+        scroll-margin-top: 72px
+      }
+
+      .stage {
+        padding-left: 58px
+      }
+
+      .stage-node {
+        left: 2px
+      }
+
+      .stage-card:hover {
+        transform: none
+      }
+
+      .hero-meta {
+        gap: 18px 26px
+      }
+
+      .feat .ascii {
+        font-size: 10px
+      }
+
+      .contact-row {
+        gap: 20px 28px
       }
     }
 
@@ -1552,6 +1640,36 @@
       .t-body {
         min-height: 300px;
         font-size: 12px
+      }
+
+      .logo-grid {
+        grid-template-columns: repeat(2, 1fr)
+      }
+
+      nav {
+        padding: 16px 16px
+      }
+
+      .logo {
+        font-size: 14px
+      }
+
+      .logo .cur {
+        display: none
+      }
+
+      .terminal {
+        max-width: 100%
+      }
+
+      .contact-cmd {
+        font-size: 12px;
+        word-break: break-all
+      }
+
+      .btn {
+        font-size: 13px;
+        padding: 13px 20px
       }
     }
 
@@ -1619,7 +1737,7 @@
   <header id="hero">
     <canvas id="net-canvas"></canvas>
     <div class="hero-left">
-      <div class="eyebrow reveal">Ahmedabad, India </div>
+      <div class="eyebrow reveal">Ahmedabad, India · UDAAN Batch 11</div>
       <h1 class="hero-name">
         <span class="row"><i>SHAKTISINH</i></span>
         <span class="row"><i class="accent">PARMAR</i></span>
@@ -1634,7 +1752,6 @@
         <a class="btn btn-fill magnetic" href="#projects">view deployments →</a>
         <a class="btn btn-ghost magnetic" href="#contact">open connection</a>
       </div>
-
     </div>
     <div class="hero-right reveal">
       <div class="terminal">
@@ -1676,16 +1793,15 @@
           — shipping e-commerce sites, REST APIs and tools people actually use. Then I found the layer underneath, and I
           haven't looked back.</p>
         <p class="reveal">Today I'm an <b>MCA student at SVGU, Ahmedabad</b> and a DevOps learner in <span
-            class="hl">UDAAN Batch 11 (TrainWithShubham)</span>. My lab: Ubuntu server in UTM, plus live <b>AWS EC2
-            instances</b> where I practice everything from user management and LVM to passwordless SSH between servers.
-        </p>
+            class="hl">UDAAN Batch 11 (TrainWithShubham)</span>. I learn by running real infrastructure, not just
+          reading about it — <b>AWS EC2</b> and a self-hosted Ubuntu server are my proving ground.</p>
         <p class="reveal">The roadmap is simple: <span class="hl">DevOps → Cloud Engineer → work on global
             infrastructure.</span> Every command I run gets me one step closer.</p>
         <div class="about-stats reveal">
           <div class="stat"><b>MCA<sup>*</sup></b><span>SVGU · Ahmedabad</span></div>
-          <div class="stat"><b>B11</b><span>UDAAN · TrainWithShubham</span></div>
-          <div class="stat"><b>AWS</b><span>SAA in preparation</span></div>
-          <div class="stat"><b>EN·HI·GU</b><span>English Hindi Gujarati</span></div>
+          <div class="stat"><b>LINUX</b><span>Daily driver</span></div>
+          <div class="stat"><b>AWS</b><span>EC2 · IAM · S3</span></div>
+          <div class="stat"><b>GIT</b><span>Version control</span></div>
         </div>
       </div>
     </div>
@@ -1903,34 +2019,62 @@
       <div class="skill-panel reveal">
         <div class="t-bar">
           <span class="t-dot r"></span><span class="t-dot y"></span><span class="t-dot g"></span>
-          <span class="t-title">devops-toolchain — honest meters, updated weekly</span>
+          <span class="t-title">~/toolchain — click a tool to boot it</span>
         </div>
-        <div class="skill-list">
-          <div class="skill">
-            <div class="skill-top"><span>Linux / Ubuntu</span><span>75%</span></div>
-            <div class="bar"><i data-w="75"></i></div>
-          </div>
-          <div class="skill">
-            <div class="skill-top"><span>Shell scripting</span><span>60%</span></div>
-            <div class="bar"><i data-w="60"></i></div>
-          </div>
-          <div class="skill">
-            <div class="skill-top"><span>Git &amp; GitHub</span><span>60%</span></div>
-            <div class="bar"><i data-w="60"></i></div>
-          </div>
-          <div class="skill">
-            <div class="skill-top"><span>AWS (EC2 · IAM)</span><span>50%</span></div>
-            <div class="bar"><i data-w="50"></i></div>
-          </div>
-          <div class="skill">
-            <div class="skill-top"><span>Networking &amp; SSH</span><span>55%</span></div>
-            <div class="bar"><i data-w="55"></i></div>
-          </div>
-          <div class="skill">
-            <div class="skill-top"><span>Docker</span><span>35%</span></div>
-            <div class="bar"><i data-w="35"></i></div>
-          </div>
+        <div class="logo-grid">
+          <button class="logo-tile" data-tool="linux"
+            data-status="Daily driver — Ubuntu admin, file systems, processes">
+            <svg viewBox="0 0 24 24" fill="currentColor">
+              <path
+                d="M12.5 1.5c-1.7 0-2.9 1.4-3.4 3-.5 1.5-.3 3.4-1.1 4.7-.5.9-1.4 1.6-2 2.5-1 1.5-1.5 3.4-1.1 5.2.4 1.8 1.7 3.3 3.3 4.1.5.2.9.5 1.1 1 .2.5.7.9 1.3 1 1.6.3 3.3.3 4.9 0 .6-.1 1.1-.5 1.3-1 .2-.5.6-.8 1.1-1 1.6-.8 2.9-2.3 3.3-4.1.4-1.8-.1-3.7-1.1-5.2-.6-.9-1.5-1.6-2-2.5-.8-1.3-.6-3.2-1.1-4.7-.5-1.6-1.7-3-3.4-3z" />
+            </svg>
+            <span class="lt-name">Linux</span>
+            <span class="lt-tag">Ubuntu</span>
+          </button>
+          <button class="logo-tile" data-tool="bash" data-status="Shell scripting — conditionals, loops, automation">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <rect x="2" y="3" width="20" height="18" rx="2" />
+              <path d="M6 8l4 4-4 4M12 16h6" />
+            </svg>
+            <span class="lt-name">Bash</span>
+            <span class="lt-tag">Shell</span>
+          </button>
+          <button class="logo-tile" data-tool="git" data-status="Version control — branching, merging, PR workflow">
+            <svg viewBox="0 0 24 24" fill="currentColor">
+              <path
+                d="M21.6 11.1L12.9 2.4a1.4 1.4 0 0 0-2 0L9.1 4.2l2.3 2.3a1.7 1.7 0 0 1 2.1 2.1l2.2 2.2a1.7 1.7 0 1 1-1 1l-2.1-2.1v5.5a1.7 1.7 0 1 1-1.4 0V9.6a1.7 1.7 0 0 1-.9-2.2L7.9 5 2.4 10.5a1.4 1.4 0 0 0 0 2l8.7 8.7a1.4 1.4 0 0 0 2 0l8.5-8.5a1.4 1.4 0 0 0 0-1.6z" />
+            </svg>
+            <span class="lt-name">Git</span>
+            <span class="lt-tag">SCM</span>
+          </button>
+          <button class="logo-tile" data-tool="github"
+            data-status="Remotes, collaboration — UDAAN Batch 11 in progress">
+            <svg viewBox="0 0 24 24" fill="currentColor">
+              <path
+                d="M12 2C6.48 2 2 6.58 2 12.25c0 4.49 2.87 8.3 6.84 9.65.5.1.68-.22.68-.49v-1.92c-2.79.62-3.37-1.37-3.37-1.37-.46-1.17-1.11-1.49-1.11-1.49-.91-.63.07-.62.07-.62 1 .07 1.53 1.05 1.53 1.05.9 1.55 2.36 1.1 2.93.84.09-.66.34-1.1.62-1.36-2.23-.26-4.57-1.13-4.57-5.02 0-1.11.39-2.02 1.03-2.73-.1-.26-.45-1.3.1-2.71 0 0 .84-.27 2.75 1.04a9.4 9.4 0 0 1 5 0c1.91-1.31 2.75-1.04 2.75-1.04.55 1.41.2 2.45.1 2.71.64.71 1.03 1.62 1.03 2.73 0 3.9-2.34 4.76-4.58 5.01.36.32.67.94.67 1.9v2.82c0 .27.18.59.69.49A10.27 10.27 0 0 0 22 12.25C22 6.58 17.52 2 12 2z" />
+            </svg>
+            <span class="lt-name">GitHub</span>
+            <span class="lt-tag">Remote</span>
+          </button>
+          <button class="logo-tile" data-tool="docker" data-status="Containers, images — early hands-on, ramping up">
+            <svg viewBox="0 0 24 24" fill="currentColor">
+              <path
+                d="M22.1 9.5c-.6-.4-1.5-.5-2.2-.4-.1-.8-.5-1.5-1.2-2l-.4-.3-.3.4c-.4.5-.6 1.3-.5 2 0 .3.1.7.3 1-.3.1-.5.3-.8.3H1.6c-.2.9-.2 4 1.9 5.7 1.5 1.2 3.5 1.8 6 1.8 5.6 0 9.8-2.6 11.8-7.3.8 0 2.4 0 3.3-1.7l.2-.4-.4-.2-.3.1zM5 12.5H3v2h2zm2.7 0H5.7v2h2zm2.6 0H8.4v2h2zm2.7 0h-2v2h2zm-8-2.7H3.3v2H5zm2.7 0H5.7v2h2zm2.6 0H8.3v2h2zm2.7 0h-2v2h2zm2.7 0h-2v2h2zm-10.7-2.6H3.3v2H5zm2.7 0H5.7v2h2zm2.6 0H8.3v2h2zm2.7 0h-2v2h2z" />
+            </svg>
+            <span class="lt-name">Docker</span>
+            <span class="lt-tag">Queued</span>
+          </button>
+          <button class="logo-tile" data-tool="aws" data-status="EC2, IAM, S3 — preparing for AWS SAA certification">
+            <svg viewBox="0 0 24 24" fill="currentColor">
+              <path
+                d="M6.8 11.3c0 .3 0 .5.1.6.1.2.2.3.3.5.1.1.1.2.1.3s-.1.2-.2.3l-.7.5c-.1.1-.2.1-.3.1-.1 0-.2-.1-.3-.2-.2-.2-.3-.4-.4-.5-.1-.2-.2-.4-.3-.6-.7.9-1.7 1.3-2.8 1.3-.8 0-1.5-.2-2-.7s-.7-1.1-.7-1.9c0-.8.3-1.5.9-2 .6-.5 1.4-.8 2.4-.8.3 0 .7 0 1 .1.4 0 .7.1 1.1.2v-.7c0-.7-.2-1.2-.5-1.5-.3-.3-.8-.4-1.6-.4-.3 0-.7 0-1 .1-.4.1-.7.2-1.1.3-.2.1-.3.1-.4.1-.1 0-.1.1-.2.1-.1 0-.2-.1-.2-.3v-.5c0-.1 0-.2.1-.3.1-.1.1-.1.3-.2.4-.2.8-.3 1.3-.4.5-.1 1-.2 1.6-.2 1.2 0 2 .3 2.6.8.5.5.8 1.3.8 2.4v3.2zm-3.8 1.4c.3 0 .7-.1 1-.3.4-.2.6-.4.8-.8.1-.2.2-.4.2-.7s.1-.6.1-1v-.5c-.3-.1-.6-.1-.9-.2-.3 0-.6-.1-.9-.1-.6 0-1.1.1-1.4.4-.3.3-.4.6-.4 1.1 0 .4.1.8.4 1 .2.1.6.2 1.1.2v-.1zm7.6.9c-.2 0-.3 0-.4-.1-.1-.1-.2-.2-.2-.4l-2.3-7.5c-.1-.2-.1-.4-.1-.5 0-.2.1-.3.3-.3h1c.2 0 .3 0 .4.1.1.1.2.2.2.4l1.6 6.4 1.5-6.4c0-.2.1-.3.2-.4.1-.1.2-.1.4-.1h.8c.2 0 .3 0 .4.1.1.1.2.2.2.4l1.5 6.5 1.6-6.5c0-.2.1-.3.2-.4.1-.1.2-.1.4-.1h1c.2 0 .3.1.3.3 0 .1 0 .1 0 .2 0 .1-.1.2-.1.3l-2.4 7.5c-.1.2-.1.3-.2.4-.1.1-.2.1-.4.1h-.9c-.2 0-.3 0-.4-.1-.1-.1-.2-.2-.2-.4l-1.5-6.3-1.5 6.3c0 .2-.1.3-.2.4-.1.1-.2.1-.4.1h-.8z" />
+            </svg>
+            <span class="lt-name">AWS</span>
+            <span class="lt-tag">EC2 · IAM</span>
+          </button>
         </div>
+        <div class="lt-status" id="lt-status"><span class="p">~$</span> hover or tap a tool to see status<span
+            class="caret"></span></div>
       </div>
       <div class="skill-panel chips-panel reveal">
         <h4>Web &amp; supporting stack</h4>
@@ -2211,8 +2355,16 @@
       const nav = document.getElementById('nav');
       window.addEventListener('scroll', () => nav.classList.toggle('scrolled', scrollY > 40), { passive: true });
       const ham = document.getElementById('hamburger'), menu = document.getElementById('mobile-menu');
-      ham.addEventListener('click', () => { ham.classList.toggle('open'); menu.classList.toggle('open'); });
-      menu.querySelectorAll('a').forEach(a => a.addEventListener('click', () => { ham.classList.remove('open'); menu.classList.remove('open'); }));
+      function toggleMenu() {
+        const isOpen = ham.classList.contains('open');
+        ham.classList.toggle('open', !isOpen);
+        menu.classList.toggle('open', !isOpen);
+        document.body.style.overflow = !isOpen ? 'hidden' : '';
+      }
+      ham.addEventListener('click', toggleMenu);
+      menu.querySelectorAll('a').forEach(a => a.addEventListener('click', () => {
+        ham.classList.remove('open'); menu.classList.remove('open'); document.body.style.overflow = '';
+      }));
     })();
 
     /* ===== SCROLL PROGRESS ===== */
@@ -2239,12 +2391,17 @@
       document.querySelectorAll('.stage').forEach(st => {
         ScrollTrigger.create({ trigger: st, start: 'top 70%', onEnter: () => st.classList.add('active') });
       });
-      // skill bars
-      document.querySelectorAll('.bar i').forEach(b => {
-        gsap.to(b, {
-          width: b.dataset.w + '%', duration: 1.2, ease: 'power3.out',
-          scrollTrigger: { trigger: b, start: 'top 90%' }
-        });
+      // logo-tile boot/glow + status line
+      document.querySelectorAll('.logo-tile').forEach(tile => {
+        const status = document.getElementById('lt-status');
+        const text = tile.dataset.status, name = tile.querySelector('.lt-name').textContent;
+        function fire() {
+          tile.classList.remove('boot'); void tile.offsetWidth; tile.classList.add('boot');
+          status.innerHTML = `<span class="p">~$</span> status --tool=${name.toLowerCase()} <span class="m">→</span> ${text}`;
+        }
+        tile.addEventListener('mouseenter', fire);
+        tile.addEventListener('click', fire);
+        tile.addEventListener('touchstart', fire, { passive: true });
       });
       // card tilt
       if (!isTouch) {
@@ -2259,7 +2416,6 @@
       }
     } else {
       document.querySelectorAll('.reveal').forEach(el => { el.style.opacity = 1; el.style.transform = 'none'; });
-      document.querySelectorAll('.bar i').forEach(b => b.style.width = b.dataset.w + '%');
       document.getElementById('rail-fill').style.height = '100%';
       document.querySelectorAll('.stage').forEach(s => s.classList.add('active'));
     }
